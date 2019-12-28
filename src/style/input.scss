@@ -1,0 +1,116 @@
+
+//公共input 修改
+/deep/ .allinputstyle{
+    .el-input{
+        height: $allinputheight !important;
+        line-height: $allinputheight !important;
+        input{
+            height: $allinputheight !important;
+            line-height: $allinputheight !important;
+        }
+        input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color:    $placeholder;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+           color:    $placeholder;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+           color:    $placeholder;
+        }
+        input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+           color:   $placeholder;
+        }
+        input::-ms-input-placeholder { /* Microsoft Edge */
+           color:    $placeholder;
+        }
+    }
+   
+}
+.selewidth{
+    width:95% !important;
+}
+/deep/ .allselectstyle {
+    .el-input{
+        height: $allinputheight !important;
+        line-height: $allinputheight !important;
+        input{
+            height: $allinputheight !important;
+        line-height: $allinputheight !important;
+        }
+
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $placeholder;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    $placeholder;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    $placeholder;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:   $placeholder;
+}
+input::-ms-input-placeholder { /* Microsoft Edge */
+   color:    $placeholder;
+}
+    }
+}
+/deep/ .el-input--small  {
+    .el-input__inner{
+        height: $allinputheight !important;
+        line-height: $allinputheight !important;
+    }
+    
+.el-input__inner::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $placeholder;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    $placeholder;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    $placeholder;
+}
+.el-input__inner:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:   $placeholder;
+}
+.el-input__inner::-ms-input-placeholder { /* Microsoft Edge */
+   color:    $placeholder;
+  
+}
+}
+.el-checkbox__input.is-checked+.el-checkbox__label{
+color: $style-background
+}
+/deep/ .el-step__title{
+    .is-finish{
+        color: $style-background
+    }
+    
+}
+/deep/ .el-button--small{
+    height: $allinputheight !important;
+    text-transform: uppercase;
+}
+/deep/ .el-input-group__prepend{
+    background-color: #ffffff;
+    padding: 0px 5px;
+} 
+/deep/ .isok input{
+    border-left: none
+}
+.okionic{
+    color: red
+}
+.must{
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 0px 5px;
+    color: red;
+    border: 1px solid #DCDFE6;
+    border-radius: 4px;
+    height: 36px;
+    border-right: none;
+    
+   
+    
+}

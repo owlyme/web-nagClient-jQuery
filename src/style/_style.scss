@@ -1,0 +1,424 @@
+$style-background:#20324c;
+$text-color:#fff;
+$bordercolor:#E9E9E9;
+$fontcolor:#999;
+$enterprisecolor:#55abe1;
+$hovercolor:#7acfdd;
+$backgroundstyle:#F5F5F5;
+$listbg:#fff;
+$moneycolor:#D02029;
+$allfont:#333;
+$delcolor:rgb(233, 10, 22);
+$fontcolorw:#686868;
+$allinputheight:40px;
+$titlecolor:#003366;
+$placeholder :#999;
+$allstyle:#8cc7cc;
+* {
+    font-family: 'Lato-Regular;'
+}
+
+.fullwidth {
+    width: 100%
+}
+
+.text-color {
+    color: $enterprisecolor
+}
+
+.positionrelative {
+    position: relative;
+}
+
+.flex {
+    display: flex
+}
+
+.l-float {
+    float: left;
+}
+
+.tbpadding {
+    padding: 10px 0px
+}
+
+.tborder {
+    border-top: 1px dashed $bordercolor;
+}
+
+.bborder {
+    border-bottom: 1px solid $bordercolor;
+}
+
+.r-float {
+    float: right;
+}
+
+.top-margin {
+    margin-top: 15px;
+}
+
+.border-l {
+    border-left: 1px solid $bordercolor;
+}
+
+.tb-margin {
+    margin: 15px 0px;
+}
+
+.lr-margin {
+    margin: 0px 15px;
+}
+
+.flexcolumn {
+    flex-direction: column
+}
+
+.flexwrap {
+    flex-wrap: wrap;
+    /*换行*/
+}
+
+.strong {
+    font-weight: 600
+}
+
+.flexjustify {
+    justify-content: space-around
+}
+
+.flexjustifybetween {
+    justify-content: space-between
+}
+
+.el-row {
+    margin-bottom: 20px;
+}
+
+.flexcentr {
+    align-items: center
+}
+
+.grid-content {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.grid-cont-right {
+    padding-left: 30px;
+    flex: 1;
+    text-align: left;
+    font-size: 14px;
+    color: #999;
+    background: #F0F0F0;
+    height: 100px;
+}
+
+.grid-num {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.grid-con-icon {
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+}
+
+.grid-con-1 .grid-con-icon {
+    background: rgb(45, 140, 240);
+}
+
+.grid-con-1 .grid-num {
+    color: $enterprisecolor;
+}
+
+.grid-con-2 .grid-con-icon {
+    background: rgb(100, 213, 114);
+}
+
+.grid-con-2 .grid-num {
+    color: rgb(45, 140, 240);
+}
+
+.grid-con-3 .grid-con-icon {
+    background: rgb(242, 94, 67);
+}
+
+.grid-con-3 .grid-num {
+    color: rgb(242, 94, 67);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.user-avator {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.user-info-cont {
+    padding-left: 50px;
+    flex: 1;
+    font-size: 14px;
+    color: #999;
+}
+
+.user-info-cont div:first-child {
+    font-size: 30px;
+    color: #222;
+}
+
+.user-info-list {
+    font-size: 14px;
+    color: #999;
+    line-height: 25px;
+}
+
+.user-info-list span {
+    margin-left: 70px;
+}
+
+.mgb20 {
+    margin-bottom: 20px;
+}
+
+.todo-item {
+    font-size: 14px;
+}
+
+.todo-item-del {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.schart {
+    width: 100%;
+    height: 300px;
+}
+
+.test {
+    // width: 50px;
+    // height: 200px;
+    overflow: auto;
+    float: left;
+    margin: 5px;
+    border: none;
+}
+
+.scrollbar {
+    // width: 30px;
+    // height: 300px;
+    margin: 0 auto;
+}
+
+// 滚动条
+.market-trend-box {
+    max-height: 600px
+}
+
+.market-trend-box {
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #000;
+    font-size: .7rem;
+    max-height: 600px
+}
+
+.market-trend-box::-webkit-scrollbar {
+    width: 4px;
+    /*height: 4px;*/
+}
+
+.market-trend-box::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.market-trend-box::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+// 滚动条
+.bg-list {
+    background: $allstyle;
+    padding: 4% 9%;
+}
+
+// form
+.form-container /deep/ {
+    background: #E7F3F3;
+    padding: 30px 45px;
+    .el-form-item {
+        margin-bottom: 0px;
+        border-bottom: 1px solid #E6EBEB;
+    }
+    .el-form-item__label {
+        background: #8CC7CC;
+        padding-right: 0;
+        padding-left: 12px;
+        color: #333333;
+    }
+    .el-input__inner {
+        border: none;
+        border-radius: 0px;
+        color: #999999;
+    }
+    .el-button--default {
+        background: none;
+    }
+    .el-step.is-vertical .el-step__line {
+        left: 12px;
+    }
+    .is-process .el-step.is-vertical {
+        left: 13px;
+    }
+    .is-process .el-step__icon-inner {
+        color: rgb(0, 7, 20);
+    }
+    .is-process .el-step__icon.is-text {
+        border-radius: 50%;
+        border: 2px solid;
+        border-color: rgb(0, 7, 20);
+        background: #8cc7cc;
+        transform: scale(1.2);
+    }
+    .el-step__title.is-wait,
+    .el-step__description.is-wait {
+        color: rgba(0, 7, 20, .5);
+    }
+    .el-step__icon-inner,
+    .el-step__title {
+        font-size: 14px;
+    }
+    .el-step__icon.is-text {
+        border-radius: 50%;
+        border: 2px solid;
+        border-color: rgba(0, 7, 20, .5);
+        background: #8cc7cc;
+    }
+    .is-wait .el-step__icon-inner {
+        color: rgba(0, 7, 20, .5);
+    }
+}
+
+.form-inline-container /deep/ {
+    .el-input__inner {
+        border-radius: 0px;
+    }
+    button {
+        height: 32px;
+        min-width: 60px;
+        padding: 7px 15px;
+        padding-top: 7px;
+        .el-icon-search {
+            font-size: 15px;
+        }
+    }
+    .el-button--success {
+        background-color: #00a3db;
+        border-color: #00a3db;
+    }
+}
+
+// margin
+/deep/ .margin-lr-10 {
+    margin: 0 10px;
+}
+
+/deep/ .margin-l-10 {
+    margin: 0px;
+    margin-left: 10px;
+}
+
+.flex-sb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.flexC {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-col-center {
+    display: flex;
+    align-items: center;
+}
+
+
+/* header */
+
+.table-container /deep/ {
+    .el-table thead {
+        tr {
+            padding: 0;
+            background: #8CC7CC;
+        }
+        th {
+            background: #8CC7CC;
+            padding: 0;
+        }
+        td {
+            background: #8CC7CC;
+            padding: 0;
+        }
+    }
+    .el-table thead th {
+        background: #8CC7CC;
+        border-bottom: 1px solid #a1a1a1;
+    }
+    .el-table thead .cell {
+        padding: 5px;
+    }
+    .el-table th,
+    .el-table tr,
+    .el-table td {
+        padding: 0;
+        background-color: #E7F3F3;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+    }
+    .el-table tbody .cell {
+        padding: 0 5px;
+        font-size: 12px;
+    }
+    .el-table--striped .el-table__body tr.el-table__row--striped td {
+        background: #FAFAFA;
+    }
+    .el-table--border td,
+    .el-table--border th,
+    .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
+        border-right: 1px solid #dee0e6;
+    }
+}
+
+.infotext {
+    overflow: auto;
+    min-width: 25%;
+    max-width: 50%;
+}

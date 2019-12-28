@@ -1,0 +1,20 @@
+/deep/ .el-menu-item i{
+    color: $style-background;
+    font-size: 20px;
+    padding-right: 20px
+}
+.el-submenu__title i{
+    color: $style-background;
+    font-size: 20px;
+    padding-right: 20px;
+}
+/deep/ .grid-cont-right{
+    padding: 0px 16%;
+}
+/deep/ .el-menu-item.is-active{
+    background: $style-background !important;
+    color: #fff !important;
+}
+/deep/ .el-submenu__title i{
+    color:#20324c
+}
