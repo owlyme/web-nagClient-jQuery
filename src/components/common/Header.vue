@@ -124,13 +124,15 @@ export default {
     },
     methods: {
         changeLoginId(id){
-            console.log(id)
             sessionStorage.tradeLoginId = id
-            this.$message({
+            this.$api.user.usersetDeaultTradeLoginId({},e=>{
+                 this.$message({
             type: 'success',
             message:  this.$t('header.hint2')
           });
-          location.reload()
+            })
+           
+        //   location.reload()
         },
         changelang(lang) {
             // alert(i)

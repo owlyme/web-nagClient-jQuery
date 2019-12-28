@@ -44,13 +44,6 @@
                             @click="copy()"
                             class="lr-margin r-float"
                             type="primary"
-                        >{{$t('adduser.hint2')}}</el-button>
-                        <el-button
-                            class="lr-margin"
-                            v-clipboard:copy="alllink"
-                            v-clipboard:success="onCopy"
-                            v-clipboard:error="onError"
-                            type="primary"
                         >{{$t('button.copylink')}}</el-button>
                     </div>
                     <!-- </el-card> -->
@@ -260,7 +253,7 @@ export default {
             userdataid: this.$route.query.userdata,
             alllink: '',
             newcommissionshow: false,
-            linkshow: false,
+            linkshow: true,
             username: JSON.parse(sessionStorage.info).displayName
         };
     },
@@ -287,33 +280,6 @@ export default {
             this.levelclass = res.data.list;
         });
 
-        if (this.userdataid != undefined) {
-            this.$api.user.contactinfo(
-                {
-                    id: this.userdataid
-                },
-                res => {
-                    this.params.compAddress = res.data.info.address;
-                    this.params.department = res.data.info.a;
-                    (this.params.city = res.data.info.city), //城市
-                        (this.params.commissionId = res.data.info.commissionId), //外佣规则id
-                        (this.params.country = res.data.info.country), //国家/地区
-                        (this.params.email = res.data.info.email), //邮箱
-                        (this.params.employerName = res.data.info.employerName), //公司名称
-                        (this.params.lastName = res.data.info.lastName), //姓
-                        (this.params.nickName = res.data.info.nickName), //其他名字
-                        (this.params.phone = res.data.info.phone), //手机号码
-                        (this.params.phoneCtCode = res.data.info.phoneCtCode), //国家区号
-                        (this.params.position = res.data.info.position), //岗位
-                        (this.params.rating = res.data.info.rating), //销售评级
-                        (this.params.state = res.data.info.state), //州/省
-                        (this.params.surName = res.data.info.surName); //名
-                    if (this.params.commissionId != '') {
-                        this.saveid(this.params.commissionId);
-                    }
-                }
-            );
-        }
         this.$api.matches.countries({}, res => {
             this.columns = res.data.list;
             if (this.userdataid != undefined) {
@@ -347,7 +313,9 @@ export default {
     },
     methods: {
         back() {
-            this.$router.push('/Toactivate');
+            // 关闭当前页签
+            this.$emit('shuttab', this.$route.meta.title);
+            this.$router.push('/toactivate');
         },
         haveid(id) {
             this.$api.user.commissionlist({}, res => {
@@ -360,7 +328,7 @@ export default {
                             this.commissionname = e.name;
                             this.params.commissionId = e.id;
                             this.linkshow = true;
-                            console.log(this.params.commissionId);
+
                             this.register(3);
                         }
                     });
@@ -434,18 +402,7 @@ export default {
             this.params.saveType = 2;
             this.register();
         },
-        onError() {
-            this.$message({
-                type: 'error',
-                message: 'error'
-            });
-        },
-        onCopy(num) {
-            this.$message({
-                type: 'success',
-                message: 'Success'
-            });
-        },
+
         shoutalter() {
             this.commissionshow = false;
         },
@@ -471,18 +428,17 @@ export default {
             });
         },
         register(number) {
-            if (!localStorage.businessshow ) {
-                this.$message('請開啓商務進行操作')
-                return
+            console.log(localStorage.businessshow)
+            if (localStorage.businessshow == 'false') {
+                this.$message('請聯絡您的邀請人開啟商務');
+                return;
             }
             if (this.params.phone) {
-                 if ( !this.isRealNum(this.params.phone)) {
-                this.$message('請輸入手機號')
-                return
+                if (!this.isRealNum(this.params.phone)) {
+                    this.$message('請輸入手機號');
+                    return;
+                }
             }
-            }
-
-
             if (number == 1) {
                 if (
                     !this.params.compAddress &&
@@ -502,7 +458,10 @@ export default {
                     return;
                 }
                 if (!this.linkshow) {
-                    this.$message({ type: 'warning', message: this.$t('adduser.hint14') });
+                    this.$message({
+                        type: 'warning',
+                        message: this.$t('adduser.hint14')
+                    });
                     return;
                 }
                 //手機和郵箱選擇
@@ -511,8 +470,11 @@ export default {
                     this.params.saveType = 3;
                     this.text = this.$t('button.saveinvite');
                     if (!this.params.commissionId) {
-                        this.$message({ type: 'warning', message: this.$t('message.Pleasechoose') + this.$t('message.commission') });
-                        //  this.$router.push('/Toactivate');
+                        this.$message({
+                            type: 'warning',
+                            message: this.$t('message.Pleasechoose') + this.$t('message.commission')
+                        });
+                        //  this.$router.push('/toactivate');
                         return;
                     }
                 } else {
@@ -532,9 +494,6 @@ export default {
                 );
                 return;
             }
-            if (this.userdataid != undefined) {
-                this.params.id = this.userdataid;
-            }
 
             this.$api.user.contactsave(this.params, res => {
                 if (this.params.saveType == 1) {
@@ -543,57 +502,39 @@ export default {
                         message: this.$t('message.success')
                     });
                     if (number == 1) {
-                        this.$router.push('/Toactivate');
+                        this.$emit('shuttab', this.$route.meta.title);
+                        this.$router.push('/toactivate');
                     }
                 } else if (this.params.saveType == 2) {
+                    var _this = this;
                     this.alllink = res.data.url;
+
+                    this.$copyText(this.alllink).then(
+                        function(e) {
+                            _this.$message({
+                                type: 'success',
+                                message: _this.$t('message.success')
+                            });
+                        },
+                        function(e) {}
+                    );
                     this.$nextTick(function() {
                         // document.getElementById('danhao').select(); // 选择对象
                         // document.execCommand('Copy'); // 执行浏览器复制命令
-                        this.$message({
-                            type: 'success',
-                            message: this.$t('message.success')
-                        });
                     });
                     if (number == 1) {
-                        this.params.compAddress = '';
-                        this.params.department = '';
-                        this.params.city = '';
-                        this.params.surName = '';
-                        this.params.commissionId = '';
-                        this.params.country = '';
-                        this.params.email = '';
-                        this.params.employerName = '';
-                        this.params.lastName = '';
-                        this.params.nickName = '';
-                        this.params.phone = '';
-                        this.params.position = '';
-                        this.params.state = '';
-                        (this.params.rating = ''), //销售评级
-                            (this.params.saveType = 1);
-                        this.$router.push('/Toactivate');
+                        this.$emit('shuttab', this.$route.meta.title);
+                        this.$router.push('/toactivate');
                     }
                 } else if (this.params.saveType == 3) {
                     this.$message({
                         type: 'success',
                         message: res.message
                     });
-                    this.params.compAddress = '';
-                    this.params.department = '';
-                    this.params.city = '';
-                    this.params.surName = '';
-                    this.params.commissionId = '';
-                    this.params.country = '';
-                    this.params.email = '';
-                    this.params.employerName = '';
-                    this.params.lastName = '';
-                    this.params.nickName = '';
-                    this.params.phone = '';
-                    this.params.position = '';
-                    this.params.state = '';
-                    (this.params.rating = ''), //销售评级
-                        (this.params.saveType = 1);
-                    this.$router.push('/Toactivate');
+                    if (number == 1) {
+                        this.$emit('shuttab', this.$route.meta.title);
+                        this.$router.push('/toactivate');
+                    }
                 }
             });
         }
@@ -602,8 +543,10 @@ export default {
 </script>
 <style scoped lang="scss">
 @import '@/style/_style.scss';
+
 .list-center {
     align-items: end;
+
     button {
         margin: 0px 10px;
     }

@@ -124,7 +124,7 @@ export default {
       backlist: [],
       value: '1',
       input23: '',
-      active: 2,
+      active: 1,
       balance: '',
       amount: '', //出金金额
       tradeAccountId: sessionStorage.tradeLoginId != undefined ? sessionStorage.tradeLoginId : '', //交易账户
@@ -204,6 +204,7 @@ export default {
           this.$message({ message: this.$t('err.oversize'), type: 'warning' });
           return;
         }
+       
         if (this.amount <= 0) {
           this.$message({ message: this.$t('err.nonnegativenumber'), type: 'warning' });
           return;

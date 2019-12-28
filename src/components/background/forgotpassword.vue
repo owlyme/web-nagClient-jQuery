@@ -38,10 +38,10 @@
                                 </el-form-item>
                                 <el-row :gutter="10">
                                     <el-form-item :label="$t('forgotpassword.code')">
-                                        <el-col :span="18">
+                                        <el-col :span="16">
                                             <el-input :placeholder="$t('message.Pleaseinput')+$t('forgotpassword.code')" v-model="form.verifyCode "></el-input>
                                         </el-col>
-                                        <el-col :span="6">
+                                        <el-col :span="8">
                                             <el-button
                                                 :class="{ 'bt-color': isclick, 'no-bt': !isclick }"
                                                 style="width:100%"

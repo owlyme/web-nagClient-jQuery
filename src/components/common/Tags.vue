@@ -38,11 +38,21 @@
     });  
         },
         methods: {
+            //关闭当前标签
+            openthis(paths){
+                this.tagsList.forEach((e,i)=>{
+                    if (e.title == paths) {
+                        console.log(i)
+                        this.closeTags(i)
+                    }
+                })
+            },
             isActive(path) {
                 return path === this.$route.fullPath;
             },
             // 关闭单个标签
             closeTags(index) {
+           
                 const delItem = this.tagsList.splice(index, 1)[0];
                 const item = this.tagsList[index] ? this.tagsList[index] : this.tagsList[index - 1];
                 if (item) {

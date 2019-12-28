@@ -49,15 +49,8 @@
                                 @click="copy()"
                                 class="lr-margin r-float"
                                 type="primary"
-                            >{{$t('adduser.hint2')}}</el-button>
-                            <el-button
-                                class="lr-margin"
-                                v-clipboard:copy="alllink"
-                                v-clipboard:success="onCopy"
-                                v-clipboard:error="onError"
-                                type="primary"
                             >{{$t('button.copylink')}}</el-button>
-                           
+                      
                             
                         </div>
                     <!-- </el-card> -->
@@ -335,7 +328,23 @@ export default {
             }
         });
     },
-    methods: { back(){
+    methods: { 
+        isRealNum(val) {
+            // isNaN()函数 把空串 空格 以及NUll 按照0来处理 所以先去除，
+
+            if (val === '' || val == null) {
+                return false;
+            }
+            if (!isNaN(val)) {
+                //对于空数组和只有一个数值成员的数组或全是数字组成的字符串，isNaN返回false，例如：'123'、[]、[2]、['123'],isNaN返回false,
+                //所以如果不需要val包含这些特殊情况，则这个判断改写为if(!isNaN(val) && typeof val === 'number' )
+                return true;
+            } else {
+                return false;
+            }
+        },
+        back(){
+            this.$emit('shuttab', this.$route.meta.title);
             this.$router.push('/Toactivate')
         },
         haveid(id) {
@@ -398,18 +407,7 @@ export default {
             this.params.saveType = 2;
             this.register();
         },
-        onError() {
-            this.$message({
-                type: 'error',
-                message: 'error'
-            });
-        },
-        onCopy(num) {
-            this.$message({
-                type: 'success',
-                message: 'Success'
-            });
-        },
+     
         shoutalter() {
             this.commissionshow = false;
         },
@@ -486,32 +484,36 @@ export default {
                     });
                     if (number == 1) {
                  
-                        this.params.saveType = 1;
+                         this.$emit('shuttab', this.$route.meta.title);
                         this.$router.push('/Toactivate');
                     }
                     //  location.reload()
                 } else if (this.params.saveType == 2) {
+                    var _this = this;
                     this.alllink = res.data.url;
-                    this.$nextTick(function() {
-                        // document.getElementById('danhao').select(); // 选择对象
-                        // document.execCommand('Copy'); // 执行浏览器复制命令
-                        this.$message({
-                            type: 'success',
-                            message: this.$t('message.success')
-                        });
-                    });
-                    if (number == 1) {
-                 
-                        this.params.saveType = 1;
-                        this.$router.push('/Toactivate');
+
+                    this.$copyText(this.alllink).then(
+                        function(e) {
+                            _this.$message({
+                                type: 'success',
+                                message: _this.$t('message.success')
+                            });
+                        },
+                        function(e) {}
+                    );
+                     if (number == 1) {
+                        this.$emit('shuttab', this.$route.meta.title);
+                        this.$router.push('/toactivate');
                     }
                 } else if (this.params.saveType == 3) {
                     this.$message({
                         type: 'success',
                         message: res.message
                     });
-                       this.params.saveType = 1;
-                      this.$router.push('/Toactivate')
+                     if (number == 1) {
+                        this.$emit('shuttab', this.$route.meta.title);
+                        this.$router.push('/toactivate');
+                    }
                 }
             });
         }

@@ -16,7 +16,8 @@
                             <a href="/">
                                 <img class="lr-margin" src="../../assets/common/img/logo.png" alt />
                             </a>
-                            <span class="text">NAG</span>
+                            
+                            <!-- <span class="text">NAG</span> -->
                         </el-header>
                         <el-main>
                             <el-col
@@ -63,7 +64,7 @@
                     </el-container>
                 </el-col>
                 <el-col
-                    class="border size-auto"
+                    class="border size-auto market-trend-box"
                     :xs="24"
                     :sm="16"
                     :md="16"
@@ -172,6 +173,30 @@
                         <el-main>
                             <el-form ref="form" :model="form">
                                 <el-row :gutter="10">
+                                     <el-col :span="12" v-show="cnEtc">
+                                        <el-form-item :rules="[{ required: true}]" label=" ">
+                                            <el-input
+                                                style="width:90%"
+                                                @change="changeidinfo('lastNameEN','cn')"
+                                                :placeholder="$t('message.Pleaseinput')+$t('signup.cnlastname')"
+                                                v-model="alldata.lastName"
+                                            >
+                                                <!-- <template slot="prepend"><span class="okionic">*</span></template> -->
+                                            </el-input>
+                                        </el-form-item>
+                                    </el-col>
+                                    <el-col :span="12" v-show="cnEtc">
+                                        <el-form-item :rules="[{ required: true}]" label=" ">
+                                            <el-input
+                                                style="width:90%"
+                                                @change="changeidinfo('surNameEN','cn')"
+                                                :placeholder="$t('message.Pleaseinput')+$t('signup.cnsurName')"
+                                                v-model="alldata.surName"
+                                            >
+                                                <!-- <template slot="prepend"><span class="okionic">*</span></template> -->
+                                            </el-input>
+                                        </el-form-item>
+                                    </el-col>
                                     <el-col :span="12">
                                         <el-form-item :rules="[{ required: true}]" label=" ">
                                             <el-input
@@ -196,30 +221,7 @@
                                             </el-input>
                                         </el-form-item>
                                     </el-col>
-                                    <el-col :span="12" v-show="cnEtc">
-                                        <el-form-item :rules="[{ required: true}]" label=" ">
-                                            <el-input
-                                                style="width:90%"
-                                                @change="changeidinfo('lastNameEN','cn')"
-                                                :placeholder="$t('message.Pleaseinput')+$t('signup.cnlastname')"
-                                                v-model="alldata.lastName"
-                                            >
-                                                <!-- <template slot="prepend"><span class="okionic">*</span></template> -->
-                                            </el-input>
-                                        </el-form-item>
-                                    </el-col>
-                                    <el-col :span="12" v-show="cnEtc">
-                                        <el-form-item :rules="[{ required: true}]" label=" ">
-                                            <el-input
-                                                style="width:90%"
-                                                @change="changeidinfo('surNameEN','cn')"
-                                                :placeholder="$t('message.Pleaseinput')+$t('signup.cnsurName')"
-                                                v-model="alldata.surName"
-                                            >
-                                                <!-- <template slot="prepend"><span class="okionic">*</span></template> -->
-                                            </el-input>
-                                        </el-form-item>
-                                    </el-col>
+                                   
                                      
                                     <el-col :span="12">
                                         <el-form-item v-show="!cnEtc" label=" " >
@@ -684,7 +686,6 @@ export default {
             // console.log(res);
             this.info = res.data.info;
             this.cnEtc = res.data.info.cnEtc;
-
             this.alldata.birthCountry = res.data.info.country;
             this.okdatadatum.countryCode = res.data.info.phoneCtCode;
             //   this.fontaimg=res.data.info.idFrontImgFullName+'?token='+sessionStorage.token
@@ -1210,6 +1211,7 @@ export default {
 }
 .padding-border {
     padding: 20px;
+    background: $allstyle;
 }
 .border {
     box-shadow: inset 3px 0px 0px 0px #19141442;

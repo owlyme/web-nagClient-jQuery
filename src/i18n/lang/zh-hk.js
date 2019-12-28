@@ -195,7 +195,7 @@ module.exports = {
     network:'網絡開小差，請檢查網路',
     completiontasks:'請填寫完整信息',
     nonnegativenumber:'請正確輸入出金金額',
-    oversize:'請不要超出可用餘額'
+    oversize:'可用餘額不足'
   },
   footer: {
     home: '首頁',
@@ -266,7 +266,7 @@ module.exports = {
   'forgotpassword':{
     'Pleaseeyesmail':'請輸入有效郵箱',
     'code':'郵箱驗證碼',
-    'havecode':'獲取驗證碼',
+    'havecode':'獲取郵件驗證碼',
     'awaitmail':'郵件已發送請稍後',
     'sendmessage':'發送成功'
   },
@@ -329,7 +329,7 @@ module.exports = {
     createdlive:'創建live賬戶',
     certification:'去認證',
     opensw:'開啓商務',
-    Toactivate:'待激活客戶',
+    Toactivate:'邀請名單',
     Activatedcustomer:'已激活客戶',
     hint:'説明',
     hint1:'您暫未認證，認證完成以後，將獲得MT5賬戶',

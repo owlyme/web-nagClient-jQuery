@@ -155,8 +155,8 @@
 export default {
     methods: {
         save() {
-            if (!localStorage.businessshow ) {
-                this.$message('請開啓商務進行操作')
+            if (localStorage.businessshow == 'false' ) {
+                this.$message('請聯絡您的邀請人開啟商務')
                 return
             }
             var that = this;

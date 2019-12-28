@@ -88,7 +88,8 @@
 export default {
   methods: {
     back() {
-      this.$router.go(-1)
+      this.$emit('shuttab', this.$route.meta.title);
+        // this.$router.push('/Rulesiscommission')
     },
     changedata(id) {
       // if (this.relationCount > 0) {
@@ -131,9 +132,8 @@ export default {
             message: this.$t('message.success'),
             duration: 1000
           });
-          setTimeout(() => {
-            this.$router.go(0);
-          }, 500);
+           this.$emit('shuttab', this.$route.meta.title);
+          // this.$router.push('/Rulesiscommission')
         }
       );
     },

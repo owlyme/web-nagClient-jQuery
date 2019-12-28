@@ -14,6 +14,7 @@ $allinputheight:40px;
 $titlecolor:#003366;
 $placeholder :#999;
 $allstyle:#8cc7cc;
+
 * {
     font-family: 'Lato-Regular;'
 }
@@ -224,7 +225,7 @@ $allstyle:#8cc7cc;
 
 // 滚动条
 .market-trend-box {
-    max-height: 600px
+    max-height: 500px
 }
 
 .market-trend-box {
@@ -232,7 +233,7 @@ $allstyle:#8cc7cc;
     overflow-y: auto;
     color: #000;
     font-size: .7rem;
-    max-height: 600px
+    max-height: 500px
 }
 
 .market-trend-box::-webkit-scrollbar {
@@ -262,33 +263,41 @@ $allstyle:#8cc7cc;
 .form-container /deep/ {
     background: #E7F3F3;
     padding: 30px 45px;
+
     .el-form-item {
         margin-bottom: 0px;
         border-bottom: 1px solid #E6EBEB;
     }
+
     .el-form-item__label {
         background: #8CC7CC;
         padding-right: 0;
         padding-left: 12px;
         color: #333333;
     }
+
     .el-input__inner {
         border: none;
         border-radius: 0px;
         color: #999999;
     }
+
     .el-button--default {
         background: none;
     }
+
     .el-step.is-vertical .el-step__line {
         left: 12px;
     }
+
     .is-process .el-step.is-vertical {
         left: 13px;
     }
+
     .is-process .el-step__icon-inner {
         color: rgb(0, 7, 20);
     }
+
     .is-process .el-step__icon.is-text {
         border-radius: 50%;
         border: 2px solid;
@@ -296,20 +305,24 @@ $allstyle:#8cc7cc;
         background: #8cc7cc;
         transform: scale(1.2);
     }
+
     .el-step__title.is-wait,
     .el-step__description.is-wait {
         color: rgba(0, 7, 20, .5);
     }
+
     .el-step__icon-inner,
     .el-step__title {
         font-size: 14px;
     }
+
     .el-step__icon.is-text {
         border-radius: 50%;
         border: 2px solid;
         border-color: rgba(0, 7, 20, .5);
         background: #8cc7cc;
     }
+
     .is-wait .el-step__icon-inner {
         color: rgba(0, 7, 20, .5);
     }
@@ -319,15 +332,18 @@ $allstyle:#8cc7cc;
     .el-input__inner {
         border-radius: 0px;
     }
+
     button {
         height: 32px;
         min-width: 60px;
         padding: 7px 15px;
         padding-top: 7px;
+
         .el-icon-search {
             font-size: 15px;
         }
     }
+
     .el-button--success {
         background-color: #00a3db;
         border-color: #00a3db;
@@ -366,6 +382,7 @@ $allstyle:#8cc7cc;
 .flex-col-center {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 
@@ -377,22 +394,27 @@ $allstyle:#8cc7cc;
             padding: 0;
             background: #8CC7CC;
         }
+
         th {
             background: #8CC7CC;
             padding: 0;
         }
+
         td {
             background: #8CC7CC;
             padding: 0;
         }
     }
+
     .el-table thead th {
         background: #8CC7CC;
         border-bottom: 1px solid #a1a1a1;
     }
+
     .el-table thead .cell {
         padding: 5px;
     }
+
     .el-table th,
     .el-table tr,
     .el-table td {
@@ -402,19 +424,59 @@ $allstyle:#8cc7cc;
         padding-right: 0px;
         padding-bottom: 0px;
         padding-left: 0px;
+
     }
+
     .el-table tbody .cell {
         padding: 0 5px;
-        font-size: 12px;
+        font-size: 13px;
+        min-height: 14px
     }
+
     .el-table--striped .el-table__body tr.el-table__row--striped td {
         background: #FAFAFA;
+        min-height: 14px
     }
+
     .el-table--border td,
     .el-table--border th,
     .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
         border-right: 1px solid #dee0e6;
     }
+
+    .el-button--small,
+    .el-button--small.is-round {
+        padding: 0px;
+        min-height: 14px;
+        font-size: 14px
+    }
+   
+}
+/deep/.el-step.is-vertical .el-step__title{
+    color: #fff;
+}
+/deep/.is-process{
+    .el-step__head{
+        .el-step__icon.is-text{
+            border-color: $style-background;
+            .el-step__icon-inner{
+                color: $style-background
+            }
+        
+        }
+    }
+    
+}
+/deep/.is-vertical{
+    .el-step__head{
+    .el-step__icon.is-text{
+        border-color: #fff;
+        .el-step__icon-inner{
+            color: #fff
+        }
+    
+    }
+}
 }
 
 .infotext {

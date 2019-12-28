@@ -65,7 +65,7 @@
                     </el-container>
                 </el-col>
                 <el-col
-                    class="border size-auto-l"
+                    class="border size-auto-l market-trend-box"
                     :xs="24"
                     :sm="16"
                     :md="16"
@@ -1375,6 +1375,8 @@ export default {
 }
 .padding-border {
     padding: 20px;
+    
+    background: $allstyle;
 }
 .border {
     box-shadow: inset 3px 0px 0px 0px #19141442;
@@ -1387,6 +1389,8 @@ export default {
 }
 .size-auto-l {
     box-shadow: inset 4px 0px 0px 0px #eaeaea;
+    max-height: 500px;
+    overflow: auto;
 }
 .logo {
     align-items: center;

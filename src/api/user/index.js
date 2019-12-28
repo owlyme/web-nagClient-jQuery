@@ -545,4 +545,24 @@ export default {
     }
     return api.post(urls.matches + '/user/fillIdentity2', params, header, Object.assign(paramsdata, data), response)
   },
+  //开始商务
+  useropenPartner(data, response, params, header) {
+    paramsdata = ''
+    paramsdata = {
+      ln,
+      token: sessionStorage.getItem('token'),
+      tradeLoginId: sessionStorage.getItem('tradeLoginId'),
+    }
+    return api.post(urls.matches + '/user/openPartner', params, header, Object.assign(paramsdata, data), response)
+  },
+  //切换tradeLoginId
+  usersetDeaultTradeLoginId(data, response, params, header) {
+    paramsdata = ''
+    paramsdata = {
+      ln,
+      token: sessionStorage.getItem('token'),
+      tradeLoginId: sessionStorage.getItem('tradeLoginId'),
+    }
+    return api.post(urls.matches + '/user/setDeaultTradeLoginId', params, header, Object.assign(paramsdata, data), response)
+  },
 }

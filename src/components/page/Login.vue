@@ -6,18 +6,10 @@
     <div class="signbox">
       <div class="flex-end">
         <div class="fg-l border">
-          <h3 style="font-size: 22px;">CHRISTMAS PROCESS ING RE MINDER</h3>
-          <p class="fg-l-text-b">
-            It's a busy time of year.
-
-          </p>
-          <p class="fg-l-text-b">
-            For Christmas and New Year payment processing impacts,
-            plaease refer to our message located in your 'Mailbox' within NAG Connect.
-          </p>
-          <p class="fg-l-text-b">
-            Have a happy and safe holiday season!
-          </p>
+          <h3 style="font-size: 22px;">{{pageText.h}}</h3>
+          <p class="fg-l-text-b">{{pageText.p1}}</p>
+          <p class="fg-l-text-b">{{pageText.p2}}</p>
+          <p class="fg-l-text-b">{{pageText.p3}}</p>
         </div>
         <div class="size-auto">
           <div class="rg-r">
@@ -68,9 +60,11 @@
 
 <script>
 import commonheader from '../common/loginheader';
+import pageText from '@/i18n/loginPageText.js'
 export default {
   data() {
     return {
+      pageText: pageText,
       logining: false,
       loginForm: {
         account: '',
@@ -196,7 +190,7 @@ export default {
 }
 
 .fg-l {
-  max-height: 465px;
+  max-height: 474px;
   // background: url('../../assets/common/img/login-bg.jpg') no-repeat;
   // background-position-x: 50%;
   // background-size: 100% 100%;

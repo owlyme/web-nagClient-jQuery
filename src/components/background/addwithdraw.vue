@@ -4,6 +4,18 @@
             <el-col :span="24">
                 <el-card shadow="hover">
                     <el-form label-width="80px" class="tablist">
+                         <el-form-item :label="$t('Information.hint')">
+                            <el-input
+                                v-model="params.state"
+                                :placeholder="$t('message.Pleaseinput')+$t('Information.hint')"
+                            ></el-input>
+                        </el-form-item>
+                        <el-form-item :label="$t('adduser.hint8')">
+                            <el-input
+                                v-model="params.city"
+                                :placeholder="$t('message.Pleaseinput')+$t('adduser.hint8')"
+                            ></el-input>
+                        </el-form-item>
                         <el-form-item :label="$t('message.banckname')">
                             <el-select
                                 v-model="params.bankName"
@@ -34,18 +46,7 @@
                             ></el-input>
                         </el-form-item>
 
-                        <el-form-item label="省份">
-                            <el-input
-                                v-model="params.state"
-                                :placeholder="$t('message.Pleaseinput')+'省份'"
-                            ></el-input>
-                        </el-form-item>
-                        <el-form-item label="城市">
-                            <el-input
-                                v-model="params.city"
-                                :placeholder="$t('message.Pleaseinput')+'城市'"
-                            ></el-input>
-                        </el-form-item>
+                       
                         <!-- <el-form-item label="街道地址">
         <el-input
           v-model="params.address"
